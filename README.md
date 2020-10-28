@@ -3,11 +3,13 @@ A simple logger for Go
 
 ## Introduction
 
-The golang log package lacks of few important things : level and an asynchronous mode
+The golang log package lacks few important things : levels and asynchronous mode
 
-Logging to different level is important for filter the details of the information that your application gives.
-Althought the practise says to do not log in goroutines, probably some application sooner or later will have to.
-The golang log package hide a sync.Mutex in the Output function, a bottleneck while used in concurrency.
+Logging to different levels is important for filtering the information details that your application gives out.
+
+Althought the best-practice says to avoid logging in goroutines, likely some application will have to, sooner rather than later.
+
+The golang log package hides a sync.Mutex in the Output function, a bottleneck when used in concurrency.
 
 ## Details
 
@@ -19,7 +21,7 @@ The default logger configuration can be changed with
 func Initialize(writer io.Writer, asyncFlag bool, bufferingSize uint)
 ```
 
-or create a new one with
+or being create a new one with
 
 ```go
 func NewLogger(writer io.Writer, asyncFlag bool, bufferingSize uint)
